@@ -3,6 +3,7 @@
     "profession": "Software Engineer",
     "age": 20,
     "residence": "S.Korea",
+    "freelance": "Available",
     "address": "S.Korea, Busan",
     "languages": [
         "Uzbek",
@@ -17,10 +18,8 @@
         "Python"
     ],
     "extra_skills": [
-        "Bootstrap",
-        "Mateerialize",
-        "Styling",
-        "Sass",
+        "Bootstrap,  Mateerialize",
+        "Styling, Sass",
         "Django",
         "GIT Knowledge"
     ],
