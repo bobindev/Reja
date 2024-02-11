@@ -36,11 +36,11 @@ app.get("/author", (req, res) => {
     res.render("author", { user: user })
 })
 app.get("/", function (req, res) {
-    res.render("harid");
+    res.render("reja");
     //res.end("<h1>Hello World!</h1>");
 })
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function () {
-    console.log(`The server is running successfullu on port: ${PORT}`);
+    console.log(`The server is running successfullu on port: ${PORT}, http://local:${PORT}`);
 });
