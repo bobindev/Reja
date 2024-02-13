@@ -45,22 +45,22 @@ app.post("/create-item", (req, res) => {
 });
 
 app.get("/author", (req, res) => {
-    
+
     res.render("author", { user: user })
 })
 app.get("/", function (req, res) {
     console.log("user entered /");
     db.collection("plans")
-    .find()
-    .toArray((err, data) => {
-        if (err) {
-            console.log(err);
-            res.end("Something went wrong!");
-        } else {
+        .find()
+        .toArray((err, data) => {
+            if (err) {
+                console.log(err);
+                res.end("Something went wrong!");
+            } else {
 
-            res.render("reja", { items: data });
-        }
-    });
+                res.render("reja", { items: data });
+            }
+        });
 
 });
 
