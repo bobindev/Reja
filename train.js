@@ -1,6 +1,36 @@
 console.log('TRAIN AREA')
 /*D-TASK: 
 
+Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
+MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
+
+@MITASK
+*/
+
+function checkContent (str1, str2) {
+    let arr1 = str1.split("");
+    let arr2 = str2.split("");
+    let checker = true;
+
+    for (let i = 0; i < arr1.length; i++) {
+        
+        if(arr2.includes(arr1[i])) {
+            checker = true;
+        }else {
+            checker = false;
+        }
+    }
+    return checker;
+
+}
+console.log(checkContent("abba", "baba"));
+    
+
+
+
+
+/*D-TASK: 
+
 Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
 MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud!
 shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
@@ -13,7 +43,7 @@ shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50
 3. classning 3ta methodini tashkil qilamiz: qoldiq, sotish, va qabul, 
 
 4. return qismida hozirgi vaqt va qolgan mahsulotlar namoyon bolsin.
-*/
+
 
 class Shop {
     constructor(non, lagmon, cola) {
@@ -40,7 +70,7 @@ class Shop {
 
         if (item === 'non') {
             this.non -= amount;
-            //console.log(`Hozir hozir ${this.current_time}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`)
+           
         } 
 
     }
@@ -52,8 +82,7 @@ class Shop {
 
         if (item === 'cola') {
             this.cola += amount;
-           // console.log(`Hozir hozir ${this.current_time}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`)
-
+          
         }
     }
 }
@@ -62,7 +91,7 @@ const shop = new Shop(4, 5, 2);
 //shop.qoldiq();
 
 shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq();
-
+*/
 
 
 
