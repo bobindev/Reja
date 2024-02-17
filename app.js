@@ -63,17 +63,17 @@ app.post("/create-item", (req, res) => {
           });
     });
 
-    app.post("/edit-item", (req, res) => {
+ app.post("/edit-item", (req, res) => {
         const data = req.body;
-        console.log(data);
+        console.log(data)
         db.collection("plans").findOneAndUpdate(
-            {_id: new mongodb.ObjectId(data._id)}, 
-            {$set: {reja: data.new_input}}, function(err, data){
-            res.json({state: "success"});
-
+          {_id: new mongodb.ObjectId(data.id) }, 
+          {$set:{reja: data.new_input}}, 
+           function(err, data) {
+          res.json({state: "success"})
         });
-        // res.end("done");
-    });
+  });
+
 
 /* app.get("/author", (req, res) => {
     res.render("author", { user: user });
@@ -86,6 +86,7 @@ app.post("/delete-all", (req, res) => {
         });
     }
 });
+
 
 app.get("/", function (req, res) {
     console.log('user entered /');

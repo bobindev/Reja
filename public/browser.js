@@ -1,5 +1,7 @@
 // const { response } = require("../app");
 
+
+
 console.log('FrontEnd JS ishga tushdi');
 
 function itemTemplate(item) {
@@ -28,36 +30,55 @@ document
             .post("/create-item", { reja: createField.value })
             .then((response) => {
                 document
-                .getElementById("item-list")
-                .insertAdjacentHTML("beforeend", itemTemplate(response.data));
+                    .getElementById("item-list")
+                    .insertAdjacentHTML("beforeend", itemTemplate(response.data));
                 createField.value = "";
                 createField.focus();
             })
-            .catch((err) => {
-                console.log("Iltimos qaytadan harakat qiling");
+            .catch(function (error) {
+                console.log(error);
             });
     });
 
-    document.addEventListener("click", function (e) {
-        //delete oper
+document.addEventListener("click", function (e) {
+    //delete oper
 
-        console.log(e.target);
-        if (e.target.classList.contains("delete-me")) {
-            if (confirm ("Aniq ochirmoqchimisiz?")) {
-                axios
-                .post("/delete-item", {id: e.target.getAttribute("data-id")})
+    console.log(e.target);
+    if (e.target.classList.contains("delete-me")) {
+        if (confirm("Aniq ochirmoqchimisiz?")) {
+            axios
+                .post("/delete-item", { id: e.target.getAttribute("data-id") })
                 .then((response) => {
                     console.log(response.data);
                     e.target.parentElement.parentElement.remove();
                 })
                 .catch(function (error) {
                     console.log(error);
-                  });
-            };
-        }
+                });
+        };
+    }
 
-        if (e.target.classList.contains("edit-me")) {
-            alert ("siz edit tugmasini bosdingiz")
-        }
-    }); 
+    if (e.target.classList.contains("edit-me")) {
+        let userInput = prompt("O'zgartirish kiriting", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
+        if (userInput) {
+            axios
+                .post("/edit-item", {
+                    id: e.target.getAttribute("data-id"),
+                    new_input: userInput,
+                }).then(response => {
+                    console.log(response.data);
+                    e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
 
+                }).catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
+});
+
+document.getElementById("clean-all").addEventListener("click", function () {
+    axios.post("/delete-all", { delete_all: true }).then(response => {
+        alert(response.data.state);
+        document.location.reload();
+    });
+});
