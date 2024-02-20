@@ -1,11 +1,33 @@
 console.log('TRAIN AREA')
+/*E-TASK: 
+
+Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+MASALAN: getReverse("hello") return qilsin "olleh".
+1. Function yaratish
+2. stringni arrayga otkazish
+3. arrayni reverse qilish va natijani string uchun join qilish 
+4. return qaytarish
+
+@MITASK
+*/
+
+function getReverse (str) {
+   const arr = str.split("");
+   const new_str = arr.reverse().join('');
+   return new_str;
+}
+console.log(getReverse("hello"));
+
+
+
+
 /*D-TASK: 
 
 Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
 MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
 
 @MITASK
-*/
+
 
 function checkContent (str1, str2) {
     let arr1 = str1.split("");
@@ -25,7 +47,7 @@ function checkContent (str1, str2) {
 }
 console.log(checkContent("abba", "baba"));
     
-
+*/
 
 
 
