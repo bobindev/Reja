@@ -1,22 +1,25 @@
 console.log('TRAIN AREA')
-/*E-TASK: 
 
-Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
-MASALAN: getReverse("hello") return qilsin "olleh".
-1. Function yaratish
-2. stringni arrayga otkazish
-3. arrayni reverse qilish va natijani string uchun join qilish 
-4. return qaytarish
+/*F-TASK: 
+
+Shunday findDoublers function tuzing, 
+unga faqat bitta string argument pass bolib, 
+agar stringda bir hil harf qatnashgan bolsa true, 
+qatnashmasa false qaytarishi kerak.
+MASALAN: findDoublers("hello") return true return qiladi
 
 @MITASK
 */
 
-function getReverse (str) {
-   const arr = str.split("");
-   const new_str = arr.reverse().join('');
-   return new_str;
+
+function findDoublers(str) {
+   for (let i = 0; i < str.length; i++) {
+      if (str.indexOf(str[i]) !== str.lastIndexOf(str[i])) {
+         return true;
+      } 
+   } return false;
 }
-console.log(getReverse("hello"));
 
-
+const new_finder = findDoublers("hello");
+console.log(new_finder);
 
